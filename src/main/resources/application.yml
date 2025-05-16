@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: cash-operations
+
+
+fib:
+  api:
+    key: ${FIB_API_KEY}
+    cashiers: MARTINA,PETER,LINDA

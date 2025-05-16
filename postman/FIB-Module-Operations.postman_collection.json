@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "cc3c2cac-f5f0-437e-b135-8929c6df973f",
+		"name": "FIB-Module-Operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7996948"
+	},
+	"item": [
+		{
+			"name": "DEPOSIT",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{FIB-X-AUTH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"operationType\": \"DEPOSIT\",\n\"amount\": 500,\n\"currency\": \"EUR\",\n\"cashier\": \"PETER\",\n\"denominations\": [\n    {\n        \"amount\": 1,\n        \"cashNote\": 500\n    }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/cash-operation",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WITHDRAWAL",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "f9Uie8nNf112hx8s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"operationType\": \"WITHDRAWAL\",\n\"amount\": \"500\",\n\"currency\": \"EUR\",\n\"cashier\": \"PETER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cash-Balance-Operation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "f9Uie8nNf112hx8s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-balance?cashierName=PETER&dateFrom=2025-05-16&dateTo=2025-05-16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-balance"
+					],
+					"query": [
+						{
+							"key": "cashierName",
+							"value": "PETER"
+						},
+						{
+							"key": "dateFrom",
+							"value": "2025-05-16"
+						},
+						{
+							"key": "dateTo",
+							"value": "2025-05-16"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
